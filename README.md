@@ -65,7 +65,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.pitneybowes.360api</groupId>
   <artifactId>shipping</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -76,27 +76,26 @@ Add this dependency to your project's build file:
 
 ```groovy
   repositories {
-    mavenCentral()     // Needed if the 'shipping' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'shipping' jar has been published to the local maven repo.
+    mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/PitneyBowes/pitneybowes-360api-shipping-java")
+        credentials {
+            username = "<YOUR_GITHUB_USERNAME>"
+            password = "<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN}>"
+        }
+    }
   }
 
   dependencies {
-     implementation "com.pitneybowes.360api:shipping:1.0.0"
+      implementation "org.springframework:spring-web:5.3.33"
+      implementation "com.pitneybowes.360api:shipping:1.0.2"
+
+      testImplementation platform('org.junit:junit-bom:5.10.0')
+      testImplementation 'org.junit.jupiter:junit-jupiter'
   }
+  
 ```
 
-### Others
-
-At first generate the JAR by executing:
-
-```shell
-mvn clean package
-```
-
-Then manually install the following JARs:
-
-- `target/shipping-1.0.0.jar`
-- `target/lib/*.jar`
 
 ## Getting Started
 
@@ -116,11 +115,11 @@ public class AddressApiExample {
       try {
             ApiClient defaultClient = new ApiClient();
             defaultClient.setBasePath("https://api-sandbox.sendpro360.pitneybowes.com/shipping"); // PROD: https://api.sendpro360.pitneybowes.com/shipping
-            defaultClient.configureBearerAuth("<CLIENT_ID>", "<CLIENT_SECRET>");
+            defaultClient.configureBearerAuth("<API360_CLIENT_ID>", "<API360_CLIENT_SECRET>");
 
             ShipmentApi apiInstance = new ShipmentApi(defaultClient);
             GetCarrierAccounts200Response carrierAccounts = apiInstance.getCarrierAccounts(null);
-            
+
             System.out.println(carrierAccounts);
         } catch (RestClientResponseException e) {
             System.err.println("Exception when calling AddressApi#addressSuggest");
