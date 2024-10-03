@@ -1,4 +1,4 @@
-# shipping
+# API 360 shipping java SDK
 
 Shipping APIs
 
@@ -551,6 +551,7 @@ Authentication schemes defined for the API:
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
+Pitney Bowes
 
 
 
