@@ -104,9 +104,9 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 import com.pitneybowes.api360.ApiClient;
-import org.springframework.web.client.RestClientResponseException;
 import com.pitneybowes.api360.api.ShipmentApi;
 import com.pitneybowes.api360.model.GetCarrierAccounts200Response;
+import org.springframework.web.client.RestClientResponseException;
 
 public class AddressApiExample {
 
