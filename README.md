@@ -93,7 +93,7 @@ Add this dependency to your project's build file:
       testImplementation platform('org.junit:junit-bom:5.10.0')
       testImplementation 'org.junit.jupiter:junit-jupiter'
   }
-  
+
 ```
 
 
@@ -122,7 +122,7 @@ public class AddressApiExample {
 
             System.out.println(carrierAccounts);
         } catch (RestClientResponseException e) {
-            System.err.println("Exception when calling AddressApi#addressSuggest");
+            System.err.println("Exception when calling ShipmentApi#getCarrierAccounts");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
