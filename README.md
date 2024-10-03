@@ -108,7 +108,7 @@ import com.pitneybowes.api360.api.ShipmentApi;
 import com.pitneybowes.api360.model.GetCarrierAccounts200Response;
 import org.springframework.web.client.RestClientResponseException;
 
-public class AddressApiExample {
+public class ShipmentApiExample {
 
     public static void main(String[] args) {
 
